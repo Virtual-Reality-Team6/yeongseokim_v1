@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
-using UnityEngine.UI;
+using UnityEngine.XR;
 
 public class HelloNPCXR : MonoBehaviour
 {
@@ -11,18 +11,30 @@ public class HelloNPCXR : MonoBehaviour
     private ActionBasedController controller;
     private bool isUIVisible = false;
 
-    void Awake()
+    private void Start()
     {
         controller = GetComponent<ActionBasedController>();
+        uiCanvas.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        Debug.Log("¾÷µ¥ÀÌÆ® ¼öÇà");
-        if (controller.inputDevice.TryGetFeatureValue(UnityEngine.XR.CommonUsages.triggerButton, out bool triggerPressed) && triggerPressed)
+        if (controller != null)
         {
-            Debug.Log("Æ®¸®°Å´Â ´­¸²");
+            // íŠ¸ë¦¬ê±° ë²„íŠ¼ì´ ëˆŒë ¸ì„ ë•Œ ì²˜ë¦¬
+            if (controller.activateAction.action.ReadValue<float>() > 0.5f)
+            {
+                // í˜„ì¬ ë ˆì´ìºìŠ¤íŠ¸ë¡œ ê°€ë¦¬í‚¤ëŠ” ê°ì²´ ê°€ì ¸ì˜¤ê¸°
+                RaycastHit hit;
+                if (Physics.Raycast(controller.transform.position, controller.transform.forward, out hit))
+                {
+                    if (hit.collider.CompareTag("HelloNPC"))
+                    {
+                        HelloNPCVR helloNPCVR = hit.collider.GetComponent<HelloNPCVR>();
+                        helloNPCVR.StartHelloInteraction();
+                    }
+                }
+            }
         }
     }
 
