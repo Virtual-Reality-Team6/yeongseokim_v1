@@ -11,11 +11,26 @@ public class HelloNPCVR : MonoBehaviour
 
     public GameObject playerObject;
     private Player player;
+    public int interactionIndex;
+
+    Rigidbody rigid;
+    public float rotationSpeed = 5f;
 
     void Awake()
     {
         HideAllPanel();
         player = playerObject.GetComponent<Player>();
+    }
+
+    void FreezeVelocity()
+    {
+        rigid.velocity = Vector3.zero;
+        rigid.angularVelocity = Vector3.zero;
+    }
+
+    void FixedUpdate()
+    {
+        FreezeVelocity();
     }
 
     public void HideAllPanel()
@@ -42,7 +57,7 @@ public class HelloNPCVR : MonoBehaviour
     {
         HideAllPanel();
         HelloCorrectPanel.SetActive(true);
-        player.iscompletedStamp[0] = true;
+        player.iscompletedStamp[interactionIndex] = true;
     }
 
     public void WrongAnswerChoice()
