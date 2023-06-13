@@ -9,9 +9,13 @@ public class HelloNPCVR : MonoBehaviour
     public GameObject HelloCorrectPanel;
     public GameObject HelloWrongPanel;
 
+    public GameObject playerObject;
+    private Player player;
+
     void Awake()
     {
         HideAllPanel();
+        player = playerObject.GetComponent<Player>();
     }
 
     public void HideAllPanel()
@@ -38,6 +42,7 @@ public class HelloNPCVR : MonoBehaviour
     {
         HideAllPanel();
         HelloCorrectPanel.SetActive(true);
+        player.iscompletedStamp[0] = true;
     }
 
     public void WrongAnswerChoice()
