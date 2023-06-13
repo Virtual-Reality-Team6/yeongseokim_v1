@@ -84,7 +84,7 @@ public class HelloNPC : MonoBehaviour
             enterPlayer.iscompletedStamp[interactionIndex] = true;
             DisplayNPCTalk(0);
             Exit();
-            enterPlayer.Stamp();
+            //enterPlayer.Stamp();
         }
         else{
             setUI(++currentQuestionIndex);
