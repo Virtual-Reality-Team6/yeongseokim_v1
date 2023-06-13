@@ -8,7 +8,7 @@ public class XRControllerCommon : MonoBehaviour
 {
 
     private ActionBasedController controller;
-    private bool isUIVisible = false;
+    public bool hasCoin;
 
     private void Start()
     {
@@ -31,9 +31,34 @@ public class XRControllerCommon : MonoBehaviour
                         Debug.Log("HelloNPC 인식");
                         HelloNPCVR helloNPCVR = hit.collider.GetComponent<HelloNPCVR>();
                         helloNPCVR.StartHelloInteraction();
-                        Debug.Log(helloNPCVR);
+                    }
+                    if (hit.collider.CompareTag("BadNPC"))
+                    {
+                        Debug.Log("BadNPC 인식");
+                        BadNPCVR badNPCVR = hit.collider.GetComponent<BadNPCVR>();
+                        badNPCVR.StartBadInteraction();
+                    }
+                    if (hit.collider.CompareTag("SadNPC"))
+                    {
+                        Debug.Log("SadNPC 인식");
+                        SadNPCVR sadNPCVR = hit.collider.GetComponent<SadNPCVR>();
+                        if(hasCoin) sadNPCVR.StartSadInteraction();
+                        else sadNPCVR.WrongAnswerChoice();
                     }
                 }
+            }
+
+            if (controller.selectAction.action.triggered)
+            {
+                // A 버튼 동작 처리
+                Debug.Log("A 버튼이 눌렸습니다.");
+            }
+
+            // B 버튼을 눌렀을 때 처리
+            if (controller.activateAction.action.triggered)
+            {
+                // B 버튼 동작 처리
+                Debug.Log("B 버튼이 눌렸습니다.");
             }
         }
     }
