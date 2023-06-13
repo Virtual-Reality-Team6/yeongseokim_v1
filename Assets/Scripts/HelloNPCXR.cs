@@ -8,31 +8,21 @@ public class HelloNPCXR : MonoBehaviour
 {
     public GameObject uiCanvas;
 
-    private XRController controller;
+    private ActionBasedController controller;
     private bool isUIVisible = false;
 
-    void Start()
+    void Awake()
     {
-        controller = GetComponent<XRController>();
-        uiCanvas.SetActive(false);
+        controller = GetComponent<ActionBasedController>();
     }
 
     // Update is called once per frame
-    private void Update()
+    void Update()
     {
-        // 트리거 버튼이 눌렸을 때 처리
+        Debug.Log("업데이트 수행");
         if (controller.inputDevice.TryGetFeatureValue(UnityEngine.XR.CommonUsages.triggerButton, out bool triggerPressed) && triggerPressed)
         {
-            // 현재 레이캐스트로 가리키는 객체 가져오기
-            RaycastHit hit;
-            if (Physics.Raycast(controller.transform.position, controller.transform.forward, out hit))
-            {
-                if (hit.collider.CompareTag("HelloNPC"))
-                {
-                    // HelloNPC 오브젝트를 가리키고 트리거 버튼을 눌렀을 때 UI 토글
-                    ToggleUI();
-                }
-            }
+            Debug.Log("트리거는 눌림");
         }
     }
 
