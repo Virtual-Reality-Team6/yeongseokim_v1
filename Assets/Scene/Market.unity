@@ -19203,8 +19203,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: HelloNPCVR, Assembly-CSharp
+      - m_Target: {fileID: 1457011514}
+        m_TargetAssemblyTypeName: SadNPCVR, Assembly-CSharp
         m_MethodName: WrongAnswerChoice
         m_Mode: 1
         m_Arguments:
@@ -22565,9 +22565,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: HelloNPCVR, Assembly-CSharp
-        m_MethodName: SecondHelloInteraction
+      - m_Target: {fileID: 1457011514}
+        m_TargetAssemblyTypeName: SadNPCVR, Assembly-CSharp
+        m_MethodName: SecondSadInteraction
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -23776,8 +23776,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: HelloNPCVR, Assembly-CSharp
+      - m_Target: {fileID: 1457011514}
+        m_TargetAssemblyTypeName: SadNPCVR, Assembly-CSharp
         m_MethodName: CorrectAnswerChoice
         m_Mode: 1
         m_Arguments:
@@ -41303,8 +41303,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: HelloNPCVR, Assembly-CSharp
+      - m_Target: {fileID: 1457011514}
+        m_TargetAssemblyTypeName: SadNPCVR, Assembly-CSharp
         m_MethodName: WrongAnswerChoice
         m_Mode: 1
         m_Arguments:
